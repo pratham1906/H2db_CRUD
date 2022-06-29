@@ -1,6 +1,7 @@
 package com.h2.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,25 @@ public class UserService {
     	return userRepo.findAll();
     }
     
-//    public User updateUser(User user) {
-//    	
-//    }
+    public User updateUser(User user) {
+    	User temp;
+    	Optional<User> optionalUser=userRepo.findById(user.getId());
+    
+    	if(optionalUser.isPresent()) {
+    		User oldUser=optionalUser.get();
+    		temp=oldUser;
+    		oldUser.setAddress(user.getAddress());
+    		oldUser.setName(user.getName());
+    		userRepo.save(oldUser);
+    	}
+    	else {
+    		return new User();
+    	}
+    	return temp;
+    }
+    
+    public String deleteUserById(int id) {
+    	userRepo.deleteById(id);
+    	return "User got deleted";
+    }
 }
