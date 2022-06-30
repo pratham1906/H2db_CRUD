@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.h2.entity.Category;
-import com.h2.entity.User;
 import com.h2.service.CategoryService;
-import com.h2.service.UserService;
 
 @RestController
 public class CategoryController {

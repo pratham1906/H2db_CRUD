@@ -1,5 +1,6 @@
 package com.h2.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ public class Asset {
 	private String name;
 	private String purchaseDate;
 	private String condNotes;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Category category;
 	public Category getCategory() {
 		return category;
@@ -54,8 +55,6 @@ public class Asset {
 	public void setCondNotes(String condNotes) {
 		this.condNotes = condNotes;
 	}
-	
-	
 	public statusType getStatus() {
 		return status;
 	}
