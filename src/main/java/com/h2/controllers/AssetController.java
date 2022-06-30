@@ -38,7 +38,7 @@ public class AssetController {
 	}
 	
 	@GetMapping("/assets")
-	public List<Asset> getAllUsers(){
+	public List<Asset> getAllAssets(){
 		return assetService.getAssets();	
 	}
 	

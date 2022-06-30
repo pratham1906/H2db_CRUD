@@ -24,7 +24,7 @@ public class Asset {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	private enum statusType{
+	public enum statusType{
 		Available,
 		Assigned,
 		Recovered

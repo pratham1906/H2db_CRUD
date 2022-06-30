@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.h2.dao.AssetRepo;
 import com.h2.entity.Asset;
+import com.h2.entity.Asset.statusType;
 
 @Service
 public class AssetService {
@@ -50,6 +51,11 @@ public class AssetService {
     	return temp;
     }
     public String deleteAssetById(int id) {
+    	Optional<Asset> asset=assetRepo.findById(id);
+    	Asset temp=asset.get();
+    	if(temp.getStatus().equals(statusType.Assigned)) {
+    		return "Asset is already Assigned!You cannot delete it";
+    	}
     	assetRepo.deleteById(id);
     	return "Asset got deleted";
     }
