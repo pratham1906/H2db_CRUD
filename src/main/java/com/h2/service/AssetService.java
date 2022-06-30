@@ -7,16 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.h2.dao.AssetRepo;
-import com.h2.dao.CategoryRepo;
 import com.h2.entity.Asset;
-import com.h2.entity.Category;
-
 
 @Service
 public class AssetService {
 
 	
-
 	@Autowired
 	private AssetRepo assetRepo;
     
@@ -45,12 +41,16 @@ public class AssetService {
     		oldAsset.setName(asset.getName());
     		oldAsset.setPurchaseDate(asset.getPurchaseDate());
     		oldAsset.setCondNotes(asset.getCondNotes());
-    		
+    		oldAsset.setCategory(asset.getCategory());
     		assetRepo.save(oldAsset);
     	}
     	else {
     		return new Asset();
     	}
     	return temp;
+    }
+    public String deleteAssetById(int id) {
+    	assetRepo.deleteById(id);
+    	return "Asset got deleted";
     }
 }

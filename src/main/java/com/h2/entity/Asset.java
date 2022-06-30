@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Asset {
@@ -14,6 +15,14 @@ public class Asset {
 	private String name;
 	private String purchaseDate;
 	private String condNotes;
+	@OneToOne
+	private Category category;
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	private enum statusType{
 		Available,
 		Assigned,

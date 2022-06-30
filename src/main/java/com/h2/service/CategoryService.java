@@ -30,7 +30,7 @@ public class CategoryService {
     	return categoryRepo.findAll();
     }
     
-    public Category updateUser(Category category) {
+    public Category updateCategory(Category category) {
     	Category temp;
     	Optional<Category> optionalCategory=categoryRepo.findById(category.getId());
     
