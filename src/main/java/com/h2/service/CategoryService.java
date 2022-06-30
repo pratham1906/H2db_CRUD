@@ -4,17 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.h2.dao.CategoryRepo;
-import com.h2.dao.UserRepo;
 import com.h2.entity.Category;
-import com.h2.entity.User;
 
+@Service
 public class CategoryService {
 
-	
-	
-	
 	@Autowired
 	private CategoryRepo categoryRepo;
     

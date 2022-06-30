@@ -1,11 +1,32 @@
 package com.h2.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Asset {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String name;
 	private String purchaseDate;
 	private String condNotes;
-	private Enum status;
+	private enum statusType{
+		Available,
+		Assigned,
+		Recovered
+	};
+	private statusType status;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -24,18 +45,20 @@ public class Asset {
 	public void setCondNotes(String condNotes) {
 		this.condNotes = condNotes;
 	}
-	public Enum getStatus() {
+	
+	
+	public statusType getStatus() {
 		return status;
 	}
-	public void setStatus(Enum status) {
+	public void setStatus(statusType status) {
 		this.status = status;
 	}
-	public Asset(String name, String purchaseDate, String condNotes, Enum status) {
+	public Asset(String name, String purchaseDate, String condNotes) {
 		super();
 		this.name = name;
 		this.purchaseDate = purchaseDate;
 		this.condNotes = condNotes;
-		this.status = status;
+		
 	}
 	public Asset() {
 		super();
