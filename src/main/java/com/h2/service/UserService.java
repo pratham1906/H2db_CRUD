@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.h2.dao.UserRepo;
 import com.h2.entity.User;
@@ -39,6 +39,7 @@ public class UserService {
     		temp=oldUser;
     		oldUser.setAddress(user.getAddress());
     		oldUser.setName(user.getName());
+    		oldUser.setAssets(user.getAssets());
     		userRepo.save(oldUser);
     	}
     	else {
@@ -51,4 +52,5 @@ public class UserService {
     	userRepo.deleteById(id);
     	return "User got deleted";
     }
+   
 }

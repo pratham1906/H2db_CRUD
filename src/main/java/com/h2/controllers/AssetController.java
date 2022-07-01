@@ -51,4 +51,9 @@ public class AssetController {
 	    public String deleteAsset(@PathVariable int id) {
 	    	return assetService.deleteAssetById(id);
 	    }
+	    
+	    @GetMapping("/searcAsset/{name}")
+	    public List<String> searchAsset(@RequestBody String name){
+	    	return assetService.searchAssetByName(name);
+	    }
 }

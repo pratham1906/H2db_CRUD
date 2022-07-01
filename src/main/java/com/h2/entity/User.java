@@ -1,5 +1,7 @@
 package com.h2.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class User {
 	private int id;
 	private String name;
 	private String address;
+	private List<Integer> assets;
 	public int getId() {
 		return id;
 	}
@@ -39,5 +42,12 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public List<Integer> getAssets() {
+		return assets;
+	}
+	public void setAssets(List<Integer> assets) {
+		this.assets = assets;
+	}
+	
 	
 }

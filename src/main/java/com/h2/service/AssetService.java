@@ -1,5 +1,6 @@
 package com.h2.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,5 +59,16 @@ public class AssetService {
     	}
     	assetRepo.deleteById(id);
     	return "Asset got deleted";
+    }
+    public List<String> searchAssetByName(String name){
+    	AssetService s=new AssetService();
+    	List<String> output=new ArrayList<>();
+    	List<Asset> allAssets=s.getAssets();
+    	for(int i=0;i<allAssets.size();i++) {
+    		if(allAssets.get(i).getName().contains(name)) {
+    			output.add(allAssets.get(i).getName());
+    		}
+    	}
+    	return output;
     }
 }
